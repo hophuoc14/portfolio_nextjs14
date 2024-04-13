@@ -40,7 +40,7 @@ export const experiencesData = [
     description:
       "I graduated after 2 years of studying. I when as a freshman found a job as a front-end developer.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2021",
   },
   {
     title: "Front-End Developer",
