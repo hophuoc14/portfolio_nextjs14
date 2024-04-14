@@ -13,3 +13,25 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+
+.textBox{
+  width: 350px;
+  position: relative;
+  /*background: rgba(229, 231, 235, 0.8);*/
+  height: 40px;
+}
+
+.boxAbs {
+  width: max-content;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /*overflow: hidden;*/
+  /*align-items: flex-start;*/
+  height: 40px;
+  left: 0;
+}
+
+.vertical-timeline-element-content .vertical-timeline-element-date{
+  padding-inline: 1rem !important;
+}
