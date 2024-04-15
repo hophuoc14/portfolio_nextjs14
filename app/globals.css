@@ -15,22 +15,35 @@ html.dark {
 }
 
 .textBox{
-  width: 350px;
-  position: relative;
   /*background: rgba(229, 231, 235, 0.8);*/
   height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+
 }
 
-.boxAbs {
-  width: max-content;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  /*overflow: hidden;*/
-  /*align-items: flex-start;*/
-  height: 40px;
-  left: 0;
+@keyframes slide-up {
+  0%, 10%{
+    transform: translateY(0%);
+  }
+  15%, 25%{
+    transform: translateY(-100%);
+  }
+  30%, 40%{
+    transform: translateY(-200%);
+  }
+
 }
+
+.textBox span {
+  animation: slide-up 12s infinite;
+  white-space: nowrap;
+}
+
+
 
 .vertical-timeline-element-content .vertical-timeline-element-date{
   padding-inline: 1rem !important;
