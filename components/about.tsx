@@ -4,10 +4,11 @@ import React from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
+import {trpc} from "@/trpc/client";
 
 export default function About() {
   const { ref } = useSectionInView("About");
-
+  console.log(trpc)
   return (
     <motion.section
       ref={ref}

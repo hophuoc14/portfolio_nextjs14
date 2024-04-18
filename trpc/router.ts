@@ -4,12 +4,12 @@ import {Context} from "@/lib/types";
 const t = initTRPC.context<Context>().create()
 const middleware = t.middleware
 const isAuth = middleware(async ({ctx,next}) => {
-
-  const { user } = ctx
-
-  if (!user || !user.id) {
-    throw new TRPCError({ code: 'UNAUTHORIZED' })
-  }
+  //
+  // const { user } = ctx
+  //
+  // if (!user || !user.id) {
+  //   throw new TRPCError({ code: 'UNAUTHORIZED' })
+  // }
 
   return next(
     {

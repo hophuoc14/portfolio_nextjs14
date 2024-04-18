@@ -1,10 +1,9 @@
 import {publicProcedure, router} from "@/trpc/router";
-import {postRouter} from "@/trpc/post-router";
+import {z} from "zod";
 import prisma from "@/lib/prisma";
 
-export const appRouter = router({
-  post: postRouter,
-  getAll: publicProcedure.mutation(async () => {
+export const postRouter = router({
+  getAll: publicProcedure.query(async () => {
     try{
       const post = await prisma.post.findMany()
       console.log("run mutation")
@@ -15,5 +14,3 @@ export const appRouter = router({
     }
   }),
 })
-
-export type AppRouter = typeof appRouter;
