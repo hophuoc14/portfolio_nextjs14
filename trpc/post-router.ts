@@ -6,8 +6,7 @@ export const postRouter = router({
   getAll: publicProcedure.query(async () => {
     try{
       const post = await prisma.post.findMany()
-      console.log("run mutation")
-      return "hi"
+      return post
     }catch (e){
       console.log(e)
       return e

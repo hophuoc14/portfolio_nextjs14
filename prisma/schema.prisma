@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Tags {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Post      Post?    @relation(fields: [postId], references: [id])
+  postId    String?  @db.ObjectId
+}
+
+model Reactions {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  postId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  emotionId String   @db.ObjectId
+  emotion   Emotions @relation(fields: [emotionId], references: [id])
+  Post      Post     @relation(fields: [postId], references: [id])
+}
+
+model Emotions {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  Reactions Reactions[]
+}
+
+model Post {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  title       String
+  content     String?
+  thumbnail   String
+  published   Boolean     @default(false)
+  viewCount   Int         @default(0)
+  author      User        @relation(fields: [authorId], references: [id])
+  authorId    String      @db.ObjectId
+  tagIds      String[]    @db.ObjectId
+  tags        Tags[]
+  reactionIds String[]    @db.ObjectId
+  reactions   Reactions[]
+}
+
+model User {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  socialProvider   String?
+  socialProviderId String?
+  email            String   @unique
+  name             String?
+  posts            Post[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  postId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
