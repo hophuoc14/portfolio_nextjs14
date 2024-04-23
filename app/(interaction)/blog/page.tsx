@@ -5,8 +5,9 @@
       <p className="text-gray-500">
         I write about programming, web development and other topics.
       </p>
+      <button className="btn">Button</button>
     </div>
   );
-};
+ };
 
-export default BlogPage;
+ export default BlogPage;
