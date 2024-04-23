@@ -20,7 +20,7 @@ export default function Intro() {
 		<section
 			ref={ref}
 			id="home"
-			className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+			className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] z-30"
 		>
 			<div className="flex items-center justify-center">
 				<div className="relative">
@@ -68,6 +68,7 @@ export default function Intro() {
 					background: 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 					WebkitBackgroundClip: 'text',
 					WebkitTextFillColor: 'transparent',
+					zIndex:20
 				}}>
 					<TypeAnimation
 						sequence={[
