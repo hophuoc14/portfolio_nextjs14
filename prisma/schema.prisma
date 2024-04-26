@@ -17,6 +17,7 @@ model Tags {
   updatedAt DateTime @updatedAt
   Post      Post?    @relation(fields: [postId], references: [id])
   postId    String?  @db.ObjectId
+  slug      String   @unique
 }
 
 model Reactions {

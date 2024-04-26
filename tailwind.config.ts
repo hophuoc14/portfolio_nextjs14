@@ -91,6 +91,9 @@ const config = {
       },
     },
   },
+  daisyui: {
+    themes: ["light", "dark", "cupcake","dracula"],
+  },
   plugins: [require("daisyui")],
 } satisfies Config;
 

@@ -22,7 +22,7 @@ export default function Home() {
   }, [data]);
 
   return (
-    <>
+    <div className="pt-28 sm:pt-36">
       <Header />
       
       <main className="flex flex-col items-center px-4">
@@ -40,6 +40,6 @@ export default function Home() {
         <Experience />
         <Contact />
       </main>
-    </>
+    </div>
   );
 }
